@@ -3,6 +3,9 @@
 # OpenWrt Configuration
 #
 CONFIG_MODULES=y
+CONFIG_PACKAGE_luci-app-modem=y
+CONFIG_PACKAGE_quectel_cm_5G=y
+CONFIG_PACKAGE_quectel_MHI=y
 CONFIG_HAVE_DOT_CONFIG=y
 CONFIG_HOST_OS_LINUX=y
 # CONFIG_HOST_OS_MACOS is not set
