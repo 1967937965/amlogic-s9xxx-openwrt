@@ -1,12 +1,12 @@
 #!/bin/bash
 #========================================================================================================================
-# https://github.com/ophub/amlogic-s9xxx-openwrt
+# https://github.com/ophub/amlogic-s9xxx-openwrt 
 # Description: Automatically Build OpenWrt for Amlogic s9xxx tv box
 # Function: Diy script (After Update feeds, Modify the default IP, hostname, theme, add/remove software packages, etc.)
-# Source code repository: https://github.com/coolsnowwolf/lede / Branch: master
+# Source code repository: https://github.com/coolsnowwolf/lede  / Branch: master
 #========================================================================================================================
 
-# ------------------------------- Main source started -------------------------------
+# ------------------------------- Main source started --------------------------------
 #
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
 # sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
@@ -23,17 +23,19 @@ echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
-#
-# ------------------------------- Main source ends -------------------------------
 
-# ------------------------------- Other started -------------------------------
+# ------------------------------- Main source ends --------------------------------
+# ------------------------------- Other started --------------------------------
 #
 # Add luci-app-amlogic
 rm -rf package/luci-app-amlogic
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
-#
-# Apply patch
-# git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
-#
-# ------------------------------- Other ends -------------------------------
+git clone https://github.com/ophub/luci-app-amlogic.git  package/luci-app-amlogic
 
+# Add 5G-Modem-Support repository
+rm -rf package/5G-Modem-Support
+git clone https://github.com/Siriling/5G-Modem-Support.git package/5G-Modem-Support
+
+# Apply patches from 5G-Modem-Support repository if necessary
+# git apply package/5G-Modem-Support/patches/*.patch --directory=feeds/luci
+
+# ------------------------------- Other ends --------------------------------
