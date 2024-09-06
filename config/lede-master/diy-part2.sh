@@ -31,7 +31,7 @@ echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git  package/luci-app-amlogic
 
-# Add 5G-Modem-Support repository
+# Add 5G-Modem-Support 
 rm -rf package/5G-Modem-Support
 git clone https://github.com/Siriling/5G-Modem-Support.git package/5G-Modem-Support
 
