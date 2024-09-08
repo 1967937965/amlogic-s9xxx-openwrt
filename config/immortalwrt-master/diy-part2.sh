@@ -35,6 +35,11 @@ git clone https://github.com/Siriling/5G-Modem-Support.git  package/5G-Modem-Sup
 # Add istore
 rm -rf package/istore
 git clone https://github.com/linkease/istore.git package/istore
+
+# Add luci-theme-argon
+rm -rf package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
