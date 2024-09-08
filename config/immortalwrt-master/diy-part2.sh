@@ -25,6 +25,16 @@ echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_r
 # Add luci-app-amlogic
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+# Add 5G-Modem-Support 
+rm -rf package/5G-Modem-Support
+git clone https://github.com/Siriling/5G-Modem-Support.git  package/5G-Modem-Support
+
+# Apply patches from 5G-Modem-Support repository if necessary
+# git apply package/5G-Modem-Support/patches/*.patch --directory=feeds/luci
+
+# Add istore
+rm -rf package/istore
+git clone https://github.com/linkease/istore.git package/istore
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
